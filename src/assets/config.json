@@ -1,0 +1,43 @@
+{
+  "menuItems": [
+    {
+      "name": "Services",
+      "children": [
+        {
+          "name": "Events",
+          "path": "#events"
+        },
+        {
+          "name": "Event templates",
+          "path": "#event-temlates"
+        }
+      ]
+    },
+    {
+      "name": "Settings",
+      "children": [
+        {
+          "name": "Prices",
+          "path": "#prices"
+        },
+        {
+          "name": "Tags",
+          "path": "#tags"
+        },
+        {
+          "name": "Resources",
+          "children": [
+            {
+              "name": "Agents",
+              "path": "#agents"
+            },
+            {
+              "name": "Materials",
+              "path": "#materials"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
