@@ -21,6 +21,7 @@
 
 .mobile-menu-trigger {
   margin-left: auto;
+  color: c.$color-black;
 
   @include c.viewport-greater(sm) {
     display: none;
