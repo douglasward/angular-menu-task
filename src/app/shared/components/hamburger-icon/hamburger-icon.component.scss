@@ -7,7 +7,6 @@
   width: var(--layer-width);
   height: calc(var(--layer-height) * 3 + var(--layer-spacing) * 2);
   position: relative;
-  cursor: pointer;
 }
 
 :host(.active) {
