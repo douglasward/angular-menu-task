@@ -1,4 +1,11 @@
+// normalize html element styles across browsers
 @import '~normalize.css';
 
+// additionally custom reset some html element styles (i.e. remove default margins etc.)
+@import 'src/styles/element-resets';
+
+// add app specific styles after this comment...
+
 @import 'src/styles/typography';
+@import 'src/styles/links';
 @import 'src/styles/page-layout';
