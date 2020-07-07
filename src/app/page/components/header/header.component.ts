@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private applicationStateService: ApplicationStateService) {
+  constructor(applicationStateService: ApplicationStateService) {
     this.mobileMenuOpenState$ = applicationStateService.mobileMenuOpen$.asObservable();
   }
 

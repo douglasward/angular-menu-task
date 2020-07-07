@@ -4,14 +4,10 @@
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: center;
   padding: 0 10px;
   color: c.$color-white;
   background-color: c.$color-green;
-}
-
-.logo {
-  width: 60px;
-  margin-right: auto;
 }
 
 .title {
