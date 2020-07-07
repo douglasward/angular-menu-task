@@ -1,0 +1,54 @@
+@use 'src/styles/common' as c;
+
+:host {
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    'header header' min-content
+    'menu content' 1fr
+    'footer footer' min-content / 0 1fr;
+
+  @include c.viewport-greater(sm) {
+    grid-template:
+    'header header' min-content
+    'menu content' 1fr
+    'footer footer' min-content / fit-content(300px) 5fr;
+  }
+}
+
+.header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+
+  @include c.viewport-greater(sm) {
+    position: initial;
+  }
+}
+
+.menu {
+  grid-area: menu;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  min-height: 100vh;
+  border-right: 2px solid c.$color-green;
+  background-color: c.$color-white;
+
+  @include c.viewport-greater(sm) {
+    position: static;
+    transform: inherit;
+    height: inherit;
+  }
+}
+
+.content {
+  grid-area: content;
+  padding: 20px;
+}
+
+.footer {
+  grid-area: footer;
+}
