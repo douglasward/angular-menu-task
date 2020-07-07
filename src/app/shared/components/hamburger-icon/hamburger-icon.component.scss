@@ -1,68 +1,51 @@
-// inspired by https://jonsuh.com/hamburgers/ and made configurable via css properties
-
 @use 'src/styles/common' as c;
 
 :host {
-  display: block;
+  display: inline-block;
   width: var(--layer-width);
   height: calc(var(--layer-height) * 3 + var(--layer-spacing) * 2);
   position: relative;
+  cursor: pointer;
 }
 
 :host(.active) {
   .layer {
-    --y-offset: calc(var(--layer-spacing) + var(--layer-height));
-
-    transform: translate3d(0, var(--y-offset), 0) rotate(135deg);
-    transition-delay: 0.075s;
+    --translate-3d: calc(var(--layer-width) * -0.2);
 
     &::before {
-      transition-delay: 0s;
-      opacity: 0;
+      transform: translate3d(var(--translate-3d), 4px, 0) rotate(-35deg) scale(0.7, 1);
     }
 
     &::after {
-      --y-offset-after: calc(var(--y-offset) * -2);
-
-      transform: translate3d(0, var(--y-offset-after), 0) rotate(-270deg);
-      transition-delay: 0.075s;
+      transform: translate3d(var(--translate-3d), -4px, 0) rotate(35deg) scale(0.7, 1);
     }
   }
 }
 
 .layer {
   display: block;
-  margin-top: calc(var(--layer-height) / -2);
-  top: calc(var(--layer-height) / 2);
-  transition-duration: 0.275s;
-  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  top: 50%;
+  transform: translateY(-50%);
 
-  &,
-  &::before,
-  &::after {
+  &, &::before, &::after {
     width: var(--layer-width);
     height: var(--layer-height);
     background-color: currentColor;
     border-radius: var(--layer-border-radius);
     position: absolute;
-    transition-property: transform;
-    transition-duration: 0.15s;
-    transition-timing-function: ease;
+    transition: transform 0.15s ease;
   }
 
-  &::before,
-  &::after {
-    content: "";
+  &::before, &::after {
+    content: '';
     display: block;
   }
 
   &::before {
-    top: calc(var(--layer-height) + var(--layer-spacing));
-    transition: opacity 0.125s 0.275s ease;
+    top: calc((var(--layer-spacing) + var(--layer-height)) * -1);
   }
 
   &::after {
-    top: calc((var(--layer-height) * 2) + (var(--layer-spacing) * 2));
-    transition: transform 0.275s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    bottom: calc((var(--layer-spacing) + var(--layer-height)) * -1);
   }
 }
