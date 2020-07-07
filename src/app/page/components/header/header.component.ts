@@ -1,4 +1,6 @@
 import {Component} from '@angular/core';
+import {ApplicationStateService} from '../../../shared/services/application-state.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,9 @@ import {Component} from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  active = false;
+  constructor(private applicationStateService: ApplicationStateService) {
+    this.mobileMenuOpenState$ = applicationStateService.mobileMenuOpen$.asObservable();
+  }
+
+  mobileMenuOpenState$: Observable<boolean>;
 }

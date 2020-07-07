@@ -24,5 +24,5 @@ export class HamburgerIconComponent {
 
   @HostBinding('class.active')
   @Input()
-  active = false;
+  active: boolean | null = false;
 }

@@ -4,6 +4,6 @@
   Angular Menu Task
 </h1>
 
-<a href="#mobile-menu" class="mobile-menu-trigger">
-  <app-hamburger-icon [active]="active" (click)="active = !active"></app-hamburger-icon>
+<a href="#mobile-menu" class="mobile-menu-trigger" appMobileMenuTrigger>
+  <app-hamburger-icon [active]="mobileMenuOpenState$ | async"></app-hamburger-icon>
 </a>
