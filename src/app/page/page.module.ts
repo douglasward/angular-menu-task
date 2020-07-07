@@ -4,12 +4,14 @@ import {HeaderComponent} from './components/header/header.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {SharedModule} from '../shared/shared.module';
 import {MobileMenuTriggerDirective} from './directives/mobile-menu-trigger.directive';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, MobileMenuTriggerDirective],
+  declarations: [HeaderComponent, FooterComponent, MobileMenuTriggerDirective, MenuComponent],
   exports: [
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,

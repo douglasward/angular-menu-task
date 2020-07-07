@@ -2,9 +2,9 @@
   <app-header></app-header>
 </header>
 
-<aside class="menu">
-  mobile menu here
-</aside>
+<nav class="menu" [class.menu--open-on-mobile]="mobileMenuOpenState$ | async">
+  <app-menu></app-menu>
+</nav>
 
 <main class="content">
 <!--
