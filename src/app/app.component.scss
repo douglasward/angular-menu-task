@@ -1,0 +1,62 @@
+@use 'src/styles/common' as c;
+
+:host {
+  min-height: 100vh;
+  display: grid;
+  grid-template:
+    'header header' min-content
+    'menu content' 1fr
+    'footer footer' min-content / 0 1fr;
+
+  @include c.viewport-greater(sm) {
+    grid-template:
+    'header header' min-content
+    'menu content' 1fr
+    'footer footer' min-content / fit-content(300px) 5fr;
+  }
+}
+
+.header {
+  grid-area: header;
+  position: sticky;
+  top: 0;
+
+  @include c.viewport-greater(sm) {
+    position: initial;
+  }
+}
+
+.menu {
+  grid-area: menu;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow: auto;
+  transform: translateX(-120%);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(c.$color-black, 0.7);
+  background-color: c.$color-lightgray;
+
+  @include c.viewport-greater(sm) {
+    position: static;
+    transform: inherit;
+    height: inherit;
+    transition: none;
+    box-shadow: none;
+    border-right: 2px solid c.$color-green;
+  }
+
+  &--open-on-mobile {
+    transform: translateX(0);
+  }
+}
+
+.content {
+  grid-area: content;
+  padding: 20px;
+}
+
+.footer {
+  grid-area: footer;
+}

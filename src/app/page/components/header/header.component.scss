@@ -1,0 +1,28 @@
+@use 'src/styles/common' as c;
+
+:host {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  color: c.$color-white;
+  background-color: c.$color-green;
+}
+
+.title {
+  font-size: min(6vw, 30px);
+  white-space: nowrap;
+  text-shadow: 2px 2px rgba(c.$color-black, 0.75);
+}
+
+.mobile-menu-trigger {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  color: c.$color-black;
+
+  @include c.viewport-greater(sm) {
+    display: none;
+  }
+}

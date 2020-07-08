@@ -1,0 +1,19 @@
+@use 'src/styles/common' as c;
+
+:host {
+  display: block;
+  padding: 20px;
+  border-top: 2px solid c.$color-green;
+  background-color: c.$color-lightgray;
+}
+
+.links-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  &__item {
+    margin: 0 10px;
+    text-transform: uppercase;
+  }
+}

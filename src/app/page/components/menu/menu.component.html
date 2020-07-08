@@ -1,0 +1,30 @@
+<ng-container *ngIf="menuItems$ | async as menuItems">
+  <ng-container *ngTemplateOutlet="menuListTemplate; context: {$implicit: menuItems, level: 1}"></ng-container>
+</ng-container>
+
+<ng-template #menuListTemplate let-menuItems let-level="level">
+  <ul class="menu-item-list">
+    <li class="menu-item-list__item" [class]="'menu-item-list__item--on-level-' + level" *ngFor="let menuItem of menuItems">
+      <div class="menu-item">
+        <a [href]="menuItem.path" class="menu-item__link link" [class]="'menu-item__link--on-level-' + level"
+           *ngIf="menuItem.path; else menuItemAsTextTemplate">
+          {{menuItem.name}}
+        </a>
+
+        <ng-template #menuItemAsTextTemplate>
+          <div class="menu-item__text" [class]="'menu-item__text--on-level-' + level">
+            {{menuItem.name}}
+          </div>
+        </ng-template>
+
+        <span class="menu-item__arrow" [class]="'menu-item_arrow--on-level-' + level" *ngIf="!(menuItem.children?.length > 0)">ᐳ</span>
+      </div>
+
+      <ng-container *ngIf="menuItem.children?.length > 0">
+        <ng-container
+          *ngTemplateOutlet="menuListTemplate; context: {$implicit: menuItem.children, level: level + 1}"></ng-container>
+      </ng-container>
+    </li>
+  </ul>
+</ng-template>
+
