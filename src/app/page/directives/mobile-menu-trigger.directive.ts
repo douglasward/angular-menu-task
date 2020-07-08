@@ -1,4 +1,4 @@
-import {Directive, HostListener} from '@angular/core';
+import {Directive, HostBinding, HostListener} from '@angular/core';
 import {ApplicationStateService} from '../../shared/services/application-state.service';
 
 @Directive({
@@ -6,6 +6,16 @@ import {ApplicationStateService} from '../../shared/services/application-state.s
 })
 export class MobileMenuTriggerDirective {
   constructor(private applicationState: ApplicationStateService) {
+  }
+
+  @HostBinding('attr.aria-expanded')
+  get ariaExpanded(): string {
+    return String(this.applicationState.mobileMenuOpen$.getValue());
+  }
+
+  @HostBinding('attr.aria-label')
+  get ariaLabel(): string {
+    return 'Mobile Menu';
   }
 
   @HostListener('click')
