@@ -58,14 +58,13 @@
 
   &__link {
     font-size: 16px;
-    flex-grow: 1;
 
     @include on-level(2) {
       margin: 10px 10px;
     }
 
     @include on-level(3) {
-      padding: 10px 30px;
+      margin: 10px 30px;
     }
   }
 

@@ -1,10 +1,15 @@
 @use 'src/styles/common' as c;
 
 .link {
-  color: c.$color-green;
+  color: c.$color-darkgreen;
 
   &:hover, &:focus {
     color: c.$color-black;
     text-decoration: none;
+  }
+
+  &:focus {
+    outline-offset: 4px;
+    outline: 2px dotted c.$color-darkgreen;
   }
 }
